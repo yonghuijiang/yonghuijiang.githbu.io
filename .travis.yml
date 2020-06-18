@@ -1,26 +1,21 @@
-sudo: false
+sudo: required
 language: node_js
 node_js:
   - 12
-cache: npm
+cache: yarn: true
+  directories:
+    - node_modules
 branches:
   only:
-    - gh-pages # build master branch only   //检测到这个分支有变化就执行一次build
+    - gh-pages
 script:
+  - hexo clean
   - hexo generate
-after_script:
-  - cd ./public
-  - git init
-#  - git config user.name "${U_NAME}"
-#  - git config user.email "${U_EMAIL}"
-  - git add .
-  - git commit -m "Update tools"
-  - git push --force --quiet "https://${GH_TOKEN}@github.com:yonghuijiang/yonghuijiang.github.io.git" master:gh-pages
-#deploy:
-#  provider: pages
-#  skip-cleanup: true
-#  github-token: $GH_TOKEN
-#  keep-history: true
-#  on: 
-#   all_branches: true
-#  local-dir: public
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  on:  
+   branch: gh-pages
+  local-dir: public
