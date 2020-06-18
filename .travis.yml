@@ -12,6 +12,7 @@ install:
   
 script:
   - npm install hexo-deployer-git --save
+  - npm install --save hexo-renderer-jade hexo-generator-feed hexo-generator-sitemap hexo-browsersync hexo-generator-archive
   - hexo clean
   - hexo generate
 
