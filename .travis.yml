@@ -1,21 +1,24 @@
-sudo: required
-language: node_js
-node_js:
-  - 12
-cache: yarn: true
-  directories:
-    - node_modules
+sudo: false
+language: node_js #指定运行环境
+node_js: '11'      # node_js环境版本
+cache: npm 
 branches:
   only:
-    - gh-pages
+    - gh-blog    #该shell脚本只会对github的master分支生效
 script:
   - hexo clean
   - hexo generate
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GH_TOKEN
-  keep-history: true
-  on:  
-   branch: gh-pages
-  local-dir: public
+
+after_script:
+  - cd ./public
+  - git init
+  - git branch 
+  - git config user.name "yonghuijiang"
+  - git config user.email "1767247871@qq.com"
+  - git add .
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+
+env:
+ global:
+   - GH_REF: github.com:yonghuijiang/yonghuijiang.github.io.git
