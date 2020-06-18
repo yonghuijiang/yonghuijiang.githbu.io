@@ -6,6 +6,7 @@ branches:
   only:
     - gh-blog    #检测到这个分支代码有变化才会执行下面的脚本
 script:
+  - npm install hexo-deployer-git --save
   - hexo clean
   - hexo generate
 
