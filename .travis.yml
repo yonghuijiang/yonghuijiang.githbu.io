@@ -22,5 +22,5 @@ after_script:
 #  github-token: $GH_TOKEN
 #  keep-history: true
 #  on: 
-#   all_branches: true
+#   all_branches: true 
 #  local-dir: public
