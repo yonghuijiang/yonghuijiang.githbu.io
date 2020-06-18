@@ -5,7 +5,7 @@ node_js:
 cache: npm
 branches:
   only:
-    - gh-pages # build master branch only
+    - gh-pages # build master branch only   //检测到这个分支有变化就执行一次build
 script:
   - hexo generate
 deploy:
@@ -13,4 +13,6 @@ deploy:
   skip-cleanup: true
   github-token: $GH_TOKEN
   keep-history: true
+  branch: 
+   on: gh-pages      //检测到这个分支有变化才会执行这些脚本
   local-dir: public
