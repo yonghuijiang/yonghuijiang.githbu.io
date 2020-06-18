@@ -93,11 +93,11 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: 'git'
+#deploy:
+#  type: 'git'
   #repo: git@github.com:yonghuijiang/yonghuijiang.github.io.git
-  branch: master
+#  branch: master
