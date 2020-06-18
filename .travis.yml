@@ -10,8 +10,8 @@ script:
   - hexo generate
 
 after_script:
-  - ls
   - cd ./public
+  - ls
   - git init  
   - git config user.name "yonghuijiang"
   - git config user.email "1767247871@qq.com"
@@ -22,3 +22,6 @@ after_script:
 env:
  global:
    - GH_REF: github.com/yonghuijiang/yonghuijiang.github.io.git
+   
+   #travis检测gh-blog分支是否有提交，如果提交了，则执行脚本，  执行脚本后会生成一些静态资源，这个时候
+   #将静态资源push到你想要的分支上就ok了
