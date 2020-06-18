@@ -19,4 +19,4 @@ after_script:
 
 env:
  global:
-   - GH_REF: github.com:yonghuijiang/yonghuijiang.github.io.git
+   - GH_REF: github.com/yonghuijiang/yonghuijiang.github.io.git
