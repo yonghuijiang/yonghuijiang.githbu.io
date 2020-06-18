@@ -1,11 +1,17 @@
 sudo: false
 language: node_js #指定运行环境
 node_js: '11'      # node_js环境版本
-cache: npm 
+cache:
+  directories:
+    - node_modules
 branches:
   only:
     - gh-blog    #检测到这个分支代码有变化才会执行下面的脚本
+install:
+  - npm install
+  
 script:
+  - npm install hexo-deployer-git --save
   - hexo clean
   - hexo generate
 
