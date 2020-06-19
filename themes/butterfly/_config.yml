@@ -31,7 +31,7 @@ highlight:
   enable: true
   line_number: false
   auto_detect: false
-  tab_replace
+  tab_replace : true
 #------打字效果----#
 activate_power_mode:
   enable: true
