@@ -11,9 +11,9 @@ menu:
   Archives: /archives/ || fas fa-archive
   Tags: /tags/ || fas fa-tags
   Categories: /categories/ || fas fa-folder-open
-  List||fas fa-list:
-    - Music || /music/ || fas fa-music
-    - Movie || /movies/ || fas fa-video
+#  List||fas fa-list:
+#    - Music || /music/ || fas fa-music
+#   - Movie || /movies/ || fas fa-video
   Link: /link/ || fas fa-link
   About: /about/ || fas fa-heart
 
@@ -24,24 +24,33 @@ highlight_theme: light # default / darker / pale night / light / ocean / mac / f
 highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
-code_word_wrap: false
-
+# code_word_wrap: false   #换行
+#----------换行功能-------------#
+code_word_wrap: true
+highlight:
+  enable: true
+  line_number: false
+  auto_detect: false
+  tab_replace
+#------打字效果----#
+activate_power_mode:
+  enable: true
 # copy settings
 # copyright: Add the copyright information after copied content (複製的內容後面加上版權信息)
 copy:
   enable: true
-  copyright: false
+  copyright: true
 
 # social settings (社交圖標設置)
 # formal:
 #   icon: link || the description
 social:
-  fab fa-github: https://github.com/xxxxx || Github
-  fas fa-envelope: mailto:xxxxxx@gmail.com || Email
+  fab fa-github: https://github.com/yonghuijiang || Github
+  fas fa-envelope: mailto:yonghui_jiang@qq.com || Email
 
 # search (搜索)
 # --------------------------------------
-
+display_updated: true
 # Algolia search
 algolia_search:
   enable: false
@@ -213,7 +222,7 @@ addThis:
 # https://github.com/overtrue/share.js
 sharejs:
   enable: true
-  sites: facebook,twitter,wechat,weibo,qq
+  sites: wechat,weibo,qq
 
 # AddToAny
 # https://www.addtoany.com/
@@ -354,7 +363,7 @@ gitter:
 
 since: 2020
 
-footer_custom_text:
+footer_custom_text: <a href="https://yonghuijiang.github.io/">Everybody's good at something.</a>
 
 footer_copyright: true
 
@@ -473,13 +482,13 @@ canvas_ribbon:
 
 # Dynamic ribbon (動態彩帶)
 canvas_ribbon_piao:
-  enable: false
+  enable: true
   mobile: false
 
 # canvas_nest
 # https://github.com/hustcc/canvas-nest.js
 canvas_nest:
-  enable: false
+  enable: true
   color: '0,0,255' #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
   opacity: 0.7 # the opacity of line (0~1), default: 0.5.
   zIndex: -1 # z-index property of the background, default: -1.
@@ -489,10 +498,10 @@ canvas_nest:
 # Typewriter Effect (打字效果)
 # https://github.com/disjukr/activate-power-mode
 activate_power_mode:
-  enable: false
+  enable: true
   colorful: true # open particle animation (冒光特效)
   shake: true #  open shake (抖動特效)
-
+  fireworks: true
 # Mouse click effects: fireworks (鼠標點擊效果: 煙火特效)
 fireworks:
   enable: false
@@ -559,8 +568,8 @@ subtitle:
   # 開頭不允許轉義字元，如需要，請把整個句子用雙引號包住
   # 如果關閉打字效果，subtitle只會顯示sub的第一行文字
   sub:
-    - 今日事&#44;今日畢
-    - Never put off till tomorrow what you can do today
+    - 努力不一定能成功&#44;但是永远不会后悔
+    - Hard work may not always result in success&#44;but it will never result in regret
 
 # Loading Animation (加載動畫)
 preloader: false
@@ -607,8 +616,12 @@ busuanzi:
 # Time difference between publish date and now (網頁運行時間)
 # Formal: Month/Day/Year Time or Year/Month/Day Time
 runtimeshow:
-  enable: false
-  publish_date:
+#  enable: false
+#  publish_date:
+  ##博客开通时间
+  enable: true
+  start_date: 19/6/2020 00:00:00  
+  
 
 # Bottom right button (右下角按鈕)
 # --------------------------------------

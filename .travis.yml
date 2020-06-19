@@ -11,8 +11,10 @@ install:
   - npm install
   
 script:
-  - npm install hexo-deployer-git --save
+  - npm install hexo-deployer-git --save #打包插件
   - npm install hexo-renderer-pug hexo-renderer-stylus --save or yarn add hexo-renderer-pug hexo-renderer-stylus
+  - npm install hexo-generator-search --save #搜索插件
+  - hexo algolia #优化搜索
   - hexo clean
   - hexo generate
 
