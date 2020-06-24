@@ -31,10 +31,7 @@ highlight:
   enable: true
   line_number: false
   auto_detect: false
-  tab_replace
-#------打字效果----#
-activate_power_mode:
-  enable: true
+  tab_replace : true
 # copy settings
 # copyright: Add the copyright information after copied content (複製的內容後面加上版權信息)
 copy:
