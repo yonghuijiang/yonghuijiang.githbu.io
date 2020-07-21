@@ -6,7 +6,7 @@
 #title: WSL使用ssh
 #categories: WSL
 #tags: [ssh,ubuntu,sshd]
-#date: 2017-11-22 22:12:28 创建时间
+#date: 2017-11-22 22:12:28 创建时间 
 #updated: 2017-12-13 11:00:13 更新时间
 echo '开始创建文章'
 read -p "标题名,也是文件名：" title  #标题也是文件名

@@ -2,6 +2,8 @@
 #
 workdir=$(cd $(dirname $0); pwd)
 cd $workdir
+echo 遍历所有修改过的文件，修改里面的修改时间
+
 cd ../../
 git config user.name "yonghuijiang"
 git config user.email "1767247871@qq.com"
