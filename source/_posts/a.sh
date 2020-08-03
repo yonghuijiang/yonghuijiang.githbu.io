@@ -14,6 +14,7 @@ arr=($modifiFiles)
 for s in ${arr[@]}
 do
 	if [[ $(head -6 $s|tail -1) =~ updated\ : ]];then
+		echo $s
 		sed  -i  "6  d" $s
 		sed -i "6 i\updated : ${updated}" $s
 	fi

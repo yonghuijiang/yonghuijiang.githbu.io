@@ -9,7 +9,10 @@ modifiFiles=$(git status)
 modifiFiles=${modifiFiles#*modified:}
 modifiFiles=${modifiFiles%%Untracked*}
 modifiFiles=${modifiFiles%%no\ changes\ added\ to\ commit*}
+modifiFiles=${modifiFiles%%Changes\ not\ staged\ for\ commit*}
+modifiFiles=${modifiFiles%%deleted:*}
 modifiFiles=${modifiFiles//modified:/ }
+#echo $modifiFiles
 arr=($modifiFiles)
 for s in ${arr[@]}
 do
