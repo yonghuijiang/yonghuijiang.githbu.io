@@ -2,8 +2,24 @@
 #
 workdir=$(cd $(dirname $0); pwd)
 cd $workdir
-echo 遍历所有修改过的文件，修改里面的修改时间
-
+echo 需要更新时间的文件
+workdir=$(cd $(dirname $0); pwd)
+updated=$(date -d today +"%Y-%m-%d %T")
+modifiFiles=$(git status)
+modifiFiles=${modifiFiles#*modified:}
+modifiFiles=${modifiFiles%%Untracked*}
+modifiFiles=${modifiFiles%%no\ changes\ added\ to\ commit*}
+modifiFiles=${modifiFiles//modified:/ }
+arr=($modifiFiles)
+for s in ${arr[@]}
+do
+	if [[ $(head -6 $s|tail -1) =~ updated\ : ]];then
+		echo $s
+		sed  -i  "6  d" $s
+		sed -i "6 i\updated : ${updated}" $s
+	fi
+done
+echo 更新时间结束
 cd ../../
 git config user.name "yonghuijiang"
 git config user.email "1767247871@qq.com"
