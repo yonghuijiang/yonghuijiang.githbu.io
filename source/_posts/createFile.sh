@@ -15,9 +15,15 @@ echo "-------------文件名不为空-------------"
 exit 1
 fi
 read -p "分类名：" categories #categories = $2 #分类
-read -p "标签名多个用英文','分离：" tags #tags = $3 #标签 英文逗号分离
+read -p "标签名,如[ssh,ubuntu,sshd]：" tags #tags = $3 #标签 英文逗号分离
 date=$(date -d today +"%Y-%m-%d %T")
 updated=$(date -d today +"%Y-%m-%d %T")
-template=---"\r""title : "${title}"\r""categories: "${categories}"\r""tags : "${tags}"\r""date : "${date}"\r""updated : "${updated}"\r"---"\r"
-echo $template > $title.md
-echo "创建成功"
+echo --- > $title.md
+echo title : ${title} >> $title.md
+echo categories: ${categories} >> $title.md
+echo tags : ${tags} >> $title.md
+echo date : ${date} >> $title.md
+echo updated : ${updated} >> $title.md
+echo --- >> $title.md
+echo '创建成功'
+
