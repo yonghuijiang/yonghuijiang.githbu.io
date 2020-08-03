@@ -9,12 +9,11 @@ modifiFiles=${modifiFiles%%no\ changes\ added\ to\ commit*}
 modifiFiles=${modifiFiles%%Changes\ not\ staged\ for\ commit*}
 modifiFiles=${modifiFiles%%deleted:*}
 modifiFiles=${modifiFiles//modified:/ }
-echo $modifiFiles
+#echo $modifiFiles
 arr=($modifiFiles)
 for s in ${arr[@]}
 do
 	if [[ $(head -6 $s|tail -1) =~ updated\ : ]];then
-		echo $s
 		sed  -i  "6  d" $s
 		sed -i "6 i\updated : ${updated}" $s
 	fi
