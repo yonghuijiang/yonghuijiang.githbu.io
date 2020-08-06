@@ -12,6 +12,8 @@ updated : 2020-08-06 16:06:47
 
 [下载连接](https://www.navicat.com.cn/download/navicat-premium)
 
+ [参考.rar](C:\Users\17672\Desktop\参考.rar) 
+
 ​		![image](https://springboot.io/uploads/default/original/1X/bbcfef599525826f8aae4c0f787915412a6a6872.png)
 
 选择对应的系统版本(这里是选择的windows 64位操作系统的安装包)
