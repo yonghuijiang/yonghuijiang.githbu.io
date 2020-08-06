@@ -617,7 +617,7 @@ runtimeshow:
 #  publish_date:
   ##博客开通时间
   enable: true
-  start_date: 19/6/2020 00:00:00  
+  publish_date: 19/6/2020 00:00:00  
   
 
 # Bottom right button (右下角按鈕)
