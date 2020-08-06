@@ -2,7 +2,6 @@
 #
 workdir=$(cd $(dirname $0); pwd)
 cd $workdir
-echo 需要更新时间的文件
 workdir=$(cd $(dirname $0); pwd)
 updated=$(date -d today +"%Y-%m-%d %T")
 modifiFiles=$(git status)
@@ -14,6 +13,7 @@ modifiFiles=${modifiFiles%%deleted:*}
 modifiFiles=${modifiFiles//modified:/ }
 echo $modifiFiles
 echo ===========================================
+echo 需要更新时间的文件
 arr=($modifiFiles)
 for s in ${arr[@]}
 do
