@@ -10,7 +10,7 @@ updated : 2020-08-06 16:06:47
 
 #### Navicat安装包下载
 
-[下载连接](https://www.navicat.com.cn/download/navicat-premium)
+[Navicat Premium 15 下载连接](https://www.navicat.com.cn/download/navicat-premium)
 
 ​		![image](https://springboot.io/uploads/default/original/1X/bbcfef599525826f8aae4c0f787915412a6a6872.png)
 
@@ -32,7 +32,7 @@ updated : 2020-08-06 16:06:47
 
 **整个过程不需要断网，也不需要把注册机放在 Navicat 的安装目录下**
 
-[下载连接](https://github.com/yonghuijiang/yonghuijiang.github.io/blob/gh-blog/source/_posts/资源包/mysql/Navicat Premium 12 注册机 V5.4.exe)
+<a herf="https://github.com/yonghuijiang/yonghuijiang.github.io/blob/gh-blog/source/_posts/资源包/mysql/Navicat Premium 12 注册机 V5.4.exe">Navicat Premium 12 注册机 V5.4.exe下载连接</a>
 
 #### 以管理员身份启动注册机
 
@@ -50,7 +50,7 @@ updated : 2020-08-06 16:06:47
 
 #### 配置注册机
 
-#### 						![image](https://springboot.io/uploads/default/optimized/1X/04de57f27ac99614ce2ccd6549259ec2e8d230de_2_525x500.png)				
+![image](https://springboot.io/uploads/default/optimized/1X/04de57f27ac99614ce2ccd6549259ec2e8d230de_2_525x500.png)				
 
 **2) License, Product and Language** 配置项
 License为Enterprise
