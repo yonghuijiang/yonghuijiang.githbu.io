@@ -12,7 +12,8 @@ modifiFiles=${modifiFiles%%no\ changes\ added\ to\ commit*}
 modifiFiles=${modifiFiles%%Changes\ not\ staged\ for\ commit*}
 modifiFiles=${modifiFiles%%deleted:*}
 modifiFiles=${modifiFiles//modified:/ }
-#echo $modifiFiles
+echo $modifiFiles
+echo ===========================================
 arr=($modifiFiles)
 for s in ${arr[@]}
 do
