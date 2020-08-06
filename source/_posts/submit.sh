@@ -10,6 +10,7 @@ modifiFiles=${modifiFiles%%Untracked*}
 modifiFiles=${modifiFiles%%no\ changes\ added\ to\ commit*}
 modifiFiles=${modifiFiles%%Changes\ not\ staged\ for\ commit*}
 modifiFiles=${modifiFiles%%deleted:*}
+modifiFiles=${modifiFiles#On\ branch\ gh-blog\ Your\ branch\ is\ up\ to\ date\ with\ 'origin/gh-blog'.\ nothing\ to\ commit,\ working\ tree\ clean}
 modifiFiles=${modifiFiles//modified:/ }
 echo $modifiFiles
 echo ===========================================
