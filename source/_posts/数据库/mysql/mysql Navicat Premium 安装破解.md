@@ -32,7 +32,7 @@ updated : 2020-08-06 16:06:47
 
 **整个过程不需要断网，也不需要把注册机放在 Navicat 的安装目录下**
 
-<a herf="https://github.com/yonghuijiang/yonghuijiang.github.io/blob/gh-blog/source/_posts/资源包/mysql/Navicat Premium 12 注册机 V5.4.exe">Navicat Premium 12 注册机 V5.4.exe下载连接</a>
+[Navicat Premium 12 注册机 V5.4.exe下载连接](https://github.com/yonghuijiang/yonghuijiang.github.io/blob/gh-blog/source/_posts/资源包/mysql/NavicatPremium12注册机V5.4.exe)
 
 #### 以管理员身份启动注册机
 
