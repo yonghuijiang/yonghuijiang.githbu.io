@@ -8,7 +8,8 @@ modifiFiles=$(git status -s | cut -c4-)
 echo $modifiFiles
 echo ===========================================
 echo 需要更新时间的文件
-arr=($modifiFiles)
+#arr=($modifiFiles)
+arr=$modifiFiles
 for s in ${arr[@]} 
 do
 	if [[ $(head -6 $s|tail -1) =~ updated\ : ]];then
