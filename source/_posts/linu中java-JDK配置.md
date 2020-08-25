@@ -3,21 +3,26 @@ title : linu中java-JDK配置
 categories: java
 tags : [java,jdk]
 date : 2020-08-25 17:54:40
-updated : 2020-08-25 18:03:58
+updated : 2020-08-25 18:11:53
 ---
+
+注：以下内容以jdk1.0.0_181版本为参考物
 
 ##### 一、配置java环境变量
 
-编辑修改/etc/profile配置文件，
+编辑修改/etc/profile配置文件
 
 `vi /etc/profile`
 
 在最末尾加入以下内容
 
-`JAVA_HOME=/usr/java/jdk1.8.0_181
-CLASSPATH=$JAVA_HOME/lib/
-PATH=$PATH:$JAVA_HOME/bin
-export PATH JAVA_HOME CLASSPATH`
+`JAVA_HOME=/usr/java/jdk1.8.0_181`
+
+`CLASSPATH=$JAVA_HOME/lib/`
+
+`PATH=$PATH:$JAVA_HOME/bin`
+
+`export PATH JAVA_HOME CLASSPATH`
 
 ##### **二、执行profile文件**
 
