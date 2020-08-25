@@ -1,9 +1,9 @@
 ---
 title : mysql Navicat Premium 安装破解
 categories: mysql
-tags : [myslq,安装破解]
+tags : [myslq,安装破解,数据库]
 date : 2020-08-06 16:06:47
-updated : 2020-08-25 17:37:13
+updated : 2020-08-25 17:50:53
 ---
 
 #### Navicat Premium 15 安装与激活
@@ -87,3 +87,5 @@ Resale Version为Site license；
 #### 激活成功
 
 ![image](https://springboot.io/uploads/default/optimized/1X/ff66a8925f2ea4be4639b35c69d968081b3b8f26_2_449x375.png)
+
+> 参考：https://www.cnblogs.com/wei9593/p/11907307.html

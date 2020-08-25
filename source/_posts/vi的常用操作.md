@@ -3,7 +3,7 @@ title : vi的常用操作
 categories: linux
 tags : [linux]
 date : 2020-08-03 17:10:39
-updated : 2020-08-03 18:15:52
+updated : 2020-08-25 17:50:53
 ---
 
 ##### 1、修改文本
