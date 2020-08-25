@@ -5,13 +5,14 @@ cd $workdir
 workdir=$(cd $(dirname $0); pwd)
 updated=$(date -d today +"%Y-%m-%d %T")
 modifiFiles=$(git status -s | cut -c4-) 
-echo $modifiFiles
+echo ===========本次修改过的内容,D--删除，M--修改,??新增===========
+echo $(git status -s)
 echo ===========================================
 echo 需要更新时间的文件
 arr=($modifiFiles)
 for s in ${arr[@]} 
 do
-	if [[ $(head -6 $s|tail -1) =~ updated\ : ]];then
+	if [[ -f "$s" && $(head -6 $s|tail -1) =~ updated\ : ]];then
 		echo $s
 		sed  -i  "6  d" $s
 		sed -i "6 i\updated : ${updated}" $s

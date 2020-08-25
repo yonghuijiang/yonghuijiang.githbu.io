@@ -3,12 +3,12 @@ title : mysql Navicat Premium 安装破解
 categories: mysql
 tags : [myslq,安装破解]
 date : 2020-08-06 16:06:47
-updated : 2020-08-25 16:45:09
+updated : 2020-08-25 17:37:13
 ---
 
 #### Navicat Premium 15 安装与激活
 
-#### Navicat安装包下载
+#### Navicat安装包下载 
 
 [Navicat Premium 15 下载连接](https://www.navicat.com.cn/download/navicat-premium)
 
