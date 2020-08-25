@@ -3,7 +3,7 @@ title : linu中java-JDK配置
 categories: java
 tags : [java,jdk]
 date : 2020-08-25 17:54:40
-updated : 2020-08-25 18:11:53
+updated : 2020-08-25 18:13:56
 ---
 
 注：以下内容以jdk1.0.0_181版本为参考物
@@ -36,7 +36,7 @@ updated : 2020-08-25 18:11:53
 
 $JAVA_HOME代表引用$JAVA_HOME变量
 
-$PATH<span style="color:red">:</span>中的<span style="color:red">:</span>相当于windows的;表示分割,表示在前一个$PATH后面追加其他path变量
+$PATH<span style="color:red">:</span>中的<span style="color:red">:</span>相当于windows的;表示分割,表示在前一个$PATH后面追加其他PATH变量
 
 **查看安装路径(已经配置好环境变量的情况下)**
 
