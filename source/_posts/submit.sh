@@ -4,19 +4,12 @@ workdir=$(cd $(dirname $0); pwd)
 cd $workdir
 workdir=$(cd $(dirname $0); pwd)
 updated=$(date -d today +"%Y-%m-%d %T")
-modifiFiles=$(git status)
-modifiFiles=${modifiFiles#*modified:}
-modifiFiles=${modifiFiles%%Untracked*}
-modifiFiles=${modifiFiles%%no\ changes\ added\ to\ commit*}
-modifiFiles=${modifiFiles%%Changes\ not\ staged\ for\ commit*}
-modifiFiles=${modifiFiles%%deleted:*}
-modifiFiles=${modifiFiles#On\ branch\ gh-blog\ Your\ branch\ is\ up\ to\ date\ with\ 'origin/gh-blog'.\ nothing\ to\ commit,\ working\ tree\ clean}
-modifiFiles=${modifiFiles//modified:/ }
+modifiFiles=$(git status -s | cut -c4-) 
 echo $modifiFiles
 echo ===========================================
 echo 需要更新时间的文件
 arr=($modifiFiles)
-for s in ${arr[@]}
+for s in ${arr[@]} 
 do
 	if [[ $(head -6 $s|tail -1) =~ updated\ : ]];then
 		echo $s
