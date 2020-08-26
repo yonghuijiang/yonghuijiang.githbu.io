@@ -3,7 +3,7 @@ title : linu中java-JDK配置
 categories: java
 tags : [java,jdk]
 date : 2020-08-25 17:54:40
-updated : 2020-08-25 18:16:17
+updated : 2020-08-26 12:00:48
 ---
 
 注：以下内容以jdk1.0.0_181版本为参考物
@@ -24,7 +24,7 @@ updated : 2020-08-25 18:16:17
 
 `export PATH JAVA_HOME CLASSPATH`
 
-### **二、执行profile文件**
+### **二、保存profile文件**
 
 `source /etc/profile`
 
