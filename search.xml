@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>idea进行远程调试</title>
+      <link href="2020/12/08/idea%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/"/>
+      <url>2020/12/08/idea%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<h5 id="一、远程调试-只有在无法直接调试时才检查该设置"><a href="#一、远程调试-只有在无法直接调试时才检查该设置" class="headerlink" title="一、远程调试(只有在无法直接调试时才检查该设置)"></a>一、远程调试(只有在无法直接调试时才检查该设置)</h5><p>使用特定JVM参数运行服务端代码</p><p>在启动项目的时候加上特定的JVNM参数</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xdebug -Xrunjdwp:transport=dt_socket,<span class="built_in">suspend</span>=n,server=y,address=<span class="variable">$&#123;debug_port&#125;</span></span><br></pre></td></tr></table></figure><p>其中的<code>${debug_port}</code>是用户自定义的，为debug端口</p><p>这里有一个坑，如果发布的应用所有JVM参数列表中与远程调试相关的JVM启动参数如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xdebug -Xrunjdwp:transport&#x3D;dt_socket,suspend&#x3D;n,server&#x3D;y,address&#x3D;127.0.0.1:15555</span><br></pre></td></tr></table></figure><p>将address设置为<code>127.0.0.1:15555</code>，表示将调试端口限制为本地访问，远程无法访问，我们在自己设置JVM的启动参数时也需要格外注意。</p><p>如果只是临时调试，在端口号前面不要加上限制访问的IP地址，调试完成之后，将上述JVM参数去除掉之后重新发布下，防范开放远程调试端口可能带来的安全风险。</p><h5 id="二、本地连接远程服务器debug端口"><a href="#二、本地连接远程服务器debug端口" class="headerlink" title="二、本地连接远程服务器debug端口"></a>二、本地连接远程服务器debug端口</h5><p>打开Intellij IDEA，</p><p>在顶部靠右的地方选择”Edit Configurations…”，</p><p>进去之后点击+号，</p><p>选择”Remote”，</p><p>按照下图的只是填写红框内的内容，</p><p>其中Name填写名称，这里为<code>remote webserver</code>，</p><p>host为远程代码运行的机器的ip/hostname，</p><p>port为上一步指定的debug_port，本例是<code>15555</code>。然后点击Apply，最后点击OK即可</p><p><img src= "/img/loading.gif" data-src=".%5C%E8%B5%84%E6%BA%90%E5%8C%85%5Cidea%5Cidea%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE.png" alt=""></p><h5 id="三、本地IDEA启动debug模式"><a href="#三、本地IDEA启动debug模式" class="headerlink" title="三、本地IDEA启动debug模式"></a>三、本地IDEA启动debug模式</h5><p>现在在上一步选择”Edit Configurations…”的下拉框的位置选择上一步创建的<code>remote webserver</code>，然后点击右边的<code>debug</code>按钮(长的像臭虫那个)，看控制台日志，如果出现类似“Connected to the target VM, address: ‘xx.xx.xx.xx:5555’, transport: ‘socket’”的字样，就表示连接成功过了。我这里实际显示的内容如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connected to the target VM, address: &#39;10.185.0.192:15555&#39;, transport: &#39;socket&#39;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> idea </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> idea </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linu中java-JDK配置</title>
+      <link href="2020/08/25/linu%E4%B8%ADjava-JDK%E9%85%8D%E7%BD%AE/"/>
+      <url>2020/08/25/linu%E4%B8%ADjava-JDK%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<p>注：以下内容以jdk1.0.0_181版本为参考物</p><h3 id="一、配置java环境变量"><a href="#一、配置java环境变量" class="headerlink" title="一、配置java环境变量"></a>一、配置java环境变量</h3><p>编辑修改/etc/profile配置文件</p><p><code>vi /etc/profile</code></p><p>在最末尾加入以下内容</p><p><code>JAVA_HOME=/usr/java/jdk1.8.0_181</code></p><p><code>CLASSPATH=$JAVA_HOME/lib/</code></p><p><code>PATH=$PATH:$JAVA_HOME/bin</code></p><p><code>export PATH JAVA_HOME CLASSPATH</code></p><h3 id="二、保存profile文件"><a href="#二、保存profile文件" class="headerlink" title="二、保存profile文件"></a><strong>二、保存profile文件</strong></h3><p><code>source /etc/profile</code></p><h3 id="三、查看安装情况"><a href="#三、查看安装情况" class="headerlink" title="三、查看安装情况:"></a>三、<strong>查看安装情况:</strong></h3><p><code>java -version</code></p><h3 id="特别说明："><a href="#特别说明：" class="headerlink" title="特别说明："></a>特别说明：</h3><p>$JAVA_HOME代表引用$JAVA_HOME变量</p><p>$PATH<span style="color:red">:</span>中的<span style="color:red">:</span>相当于windows的;表示分割,表示在前一个$PATH后面追加其他PATH变量</p><p><strong>查看安装路径(已经配置好环境变量的情况下)</strong></p><p><code>java -verbose</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> jdk </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>mysql Navicat Premium 安装破解</title>
+      <link href="2020/08/06/mysql-Navicat-Premium-%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/"/>
+      <url>2020/08/06/mysql-Navicat-Premium-%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Navicat-Premium-15-安装与激活"><a href="#Navicat-Premium-15-安装与激活" class="headerlink" title="Navicat Premium 15 安装与激活"></a>Navicat Premium 15 安装与激活</h4><h4 id="Navicat安装包下载"><a href="#Navicat安装包下载" class="headerlink" title="Navicat安装包下载"></a>Navicat安装包下载</h4><p><a href="https://www.navicat.com.cn/download/navicat-premium" target="_blank" rel="noopener">Navicat Premium 15 下载连接</a></p><p>​        <img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/original/1X/bbcfef599525826f8aae4c0f787915412a6a6872.png" alt="image"></p><p>选择对应的系统版本(这里是选择的windows 64位操作系统的安装包)</p><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>运行安装包，一顿下一步就完事儿了。</p><p>​        <img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/original/1X/819b0eb65cf278abe37fa73f9b961f2ec678ef8e.png" alt="image">    </p><p><span style="color:red">先不要启动它！</span></p><p><span style="color:red">先不要启动它！</span></p><p><span style="color:red">先不要启动它！</span></p><h4 id="注册机"><a href="#注册机" class="headerlink" title="注册机"></a>注册机</h4><p><strong>整个过程不需要断网，也不需要把注册机放在 Navicat 的安装目录下</strong></p><p><a href="https://github.com/yonghuijiang/yonghuijiang.github.io/blob/gh-blog/source/_posts/资源包/mysql/NavicatPremium12注册机V5.4.exe" target="_blank" rel="noopener">Navicat Premium 12 注册机 V5.4.exe下载连接</a></p><h4 id="以管理员身份启动注册机"><a href="#以管理员身份启动注册机" class="headerlink" title="以管理员身份启动注册机"></a>以管理员身份启动注册机</h4><p>打开注册机后，在 <strong>1) Patch</strong> 处，勾选Backup、Host和Navicat v15，然后点击Patch按钮</p><p><img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/optimized/1X/15a77e161e4ba46d8b40102daf045ed5663a30d5_2_525x500.png" alt="image"></p><p>找到安装目录中的运行程序（navicat.exe），点击打开</p><p>​                                <img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/optimized/1X/440500f1684cfb61caddd366eb870231c1e51860_2_517x324.png" alt="image"></p><p>点击确定    </p><p>​                                <img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/original/1X/fb10deba9875b6935eafa0ed082d75dc2010fbed.png" alt="image"></p><h4 id="配置注册机"><a href="#配置注册机" class="headerlink" title="配置注册机"></a>配置注册机</h4><p><img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/optimized/1X/04de57f27ac99614ce2ccd6549259ec2e8d230de_2_525x500.png" alt="image">                </p><p><strong>2) License, Product and Language</strong> 配置项<br>License为Enterprise<br>Products为Premium<br>Languages为Simplified Chinese（即简体中文，其它语言版本如英文版请选择English）</p><p><strong>3) Resale License</strong> 配置项<br>Resale Version为Site license；</p><p>然后点击 <strong>Generate</strong> 生成Serial Keygen（即注册码）</p><h4 id="启动Navicat"><a href="#启动Navicat" class="headerlink" title="启动Navicat"></a>启动Navicat</h4><p>点击菜单栏的 <strong>帮助</strong> ，选择 <strong>注册</strong> ，在注册窗口 <strong>键</strong> 处填入上一步生成的Serial Keygen（即注册码），然后点击 <strong>激活<img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/original/1X/1da7611237c8294f9f434dbdc4c2f480d5cd9d69.png" alt="image"></strong></p><p>选择 <strong>手动激活</strong><img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/original/1X/40fb0f220f6892882045facddbf69bb24a7eb9b3.png" alt="image"></p><p>把请求码复制到注册机的Request Code框中，点击Activation Code下Generate按钮，生成激活码。</p><p><img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/optimized/1X/793c724bd0a12706bd15cb87be54df6112dada2a_2_690x350.png" alt="image"></p><blockquote><p>若此处出现错误，要么你未完全按照教程来，要么你所安装的版本高于注册机所支持的版本</p></blockquote><p>把注册机生成的激活码复制到Navicate的激活码输入框中，点击激活</p><p><img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/optimized/1X/8edb91bb16d72c179e6919821a74efdfb2d6cdd8_2_690x340.png" alt="image"></p><p>提示OK</p><p><img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/original/1X/11b612c81547f292ef8c464039f6c9e94f84d66f.png" alt="image"></p><h4 id="激活成功"><a href="#激活成功" class="headerlink" title="激活成功"></a>激活成功</h4><p><img src= "/img/loading.gif" data-src="https://springboot.io/uploads/default/optimized/1X/ff66a8925f2ea4be4639b35c69d968081b3b8f26_2_449x375.png" alt="image"></p><blockquote><p>参考：<a href="https://www.cnblogs.com/wei9593/p/11907307.html" target="_blank" rel="noopener">https://www.cnblogs.com/wei9593/p/11907307.html</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> mysql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> myslq </tag>
+            
+            <tag> 安装破解 </tag>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vi的常用操作</title>
+      <link href="2020/08/03/vi%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+      <url>2020/08/03/vi%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+      
+        <content type="html"><![CDATA[<h5 id="1、修改文本"><a href="#1、修改文本" class="headerlink" title="1、修改文本"></a>1、修改文本</h5><table><thead><tr><th align="left">命令</th><th>释意</th></tr></thead><tbody><tr><td align="left">i</td><td>在光标前插入</td></tr><tr><td align="left">I</td><td>在光标当前行开始插入</td></tr><tr><td align="left">a</td><td>在光标后插入</td></tr><tr><td align="left">A</td><td>在光标当前行末尾插入</td></tr><tr><td align="left">o</td><td>在光标当前行的下一行插入新行</td></tr><tr><td align="left">O</td><td>在光标当前行的上一行插入新行</td></tr><tr><td align="left">:wq</td><td>保存并退出</td></tr></tbody></table><h5 id="2、定位命令"><a href="#2、定位命令" class="headerlink" title="2、定位命令"></a>2、定位命令</h5><table><thead><tr><th align="left">命令</th><th>释意</th></tr></thead><tbody><tr><td align="left">:set nu</td><td>显示行号</td></tr><tr><td align="left">:set nonu</td><td>取消行号</td></tr><tr><td align="left">gg</td><td>跳到首行</td></tr><tr><td align="left">G</td><td>跳到末行</td></tr><tr><td align="left">:n</td><td>跳到第n行</td></tr></tbody></table><h5 id="3、替换和取消命令"><a href="#3、替换和取消命令" class="headerlink" title="3、替换和取消命令"></a>3、替换和取消命令</h5><table><thead><tr><th align="left">命令</th><th>释意</th></tr></thead><tbody><tr><td align="left">u</td><td>undo，取消上一步操作</td></tr><tr><td align="left">Ctrl + r</td><td>redo，返回到undo之前</td></tr><tr><td align="left">r</td><td>替换光标所在处的字符</td></tr><tr><td align="left">R</td><td>从光标所在处开始替换，按Esc键结束</td></tr></tbody></table><h5 id="4、删除命令"><a href="#4、删除命令" class="headerlink" title="4、删除命令"></a>4、删除命令</h5><table><thead><tr><th>命令</th><th>释意</th></tr></thead><tbody><tr><td>x</td><td>删除光标所在处字符</td></tr><tr><td>nx</td><td>删除光标所在处后的n个字符串</td></tr><tr><td>dd</td><td>删除光标所在行，ndd删除n行</td></tr><tr><td>dG</td><td>删除光标所在行到末尾行的所有内容</td></tr><tr><td>D</td><td>删除光标所在处到行尾的内容</td></tr><tr><td>:5,7d</td><td>删除指定范围的行</td></tr></tbody></table><h5 id="5、常用快捷键"><a href="#5、常用快捷键" class="headerlink" title="5、常用快捷键"></a>5、常用快捷键</h5><table><thead><tr><th>命令</th><th>释意</th></tr></thead><tbody><tr><td>Shift + zz</td><td>保存退出，与“:wq”作用相同</td></tr><tr><td>v</td><td>进入字符串可视模式</td></tr><tr><td>V</td><td>进入行可视模式</td></tr><tr><td>Ctrl + v</td><td>进入块可视模式</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
