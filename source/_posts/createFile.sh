@@ -26,4 +26,3 @@ echo date : ${date} >> $title.md
 echo updated : ${updated} >> $title.md
 echo --- >> $title.md
 echo '创建成功'
-
